@@ -9,6 +9,7 @@ class apt {
 	file { "sources.list":
 		name => "${root}/sources.list",
 		ensure => present,
+		content => '# MANAGED BY PUPPET - use apt::source instead',
 		owner => root,
 		group => root,
 		mode => 644,
