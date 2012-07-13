@@ -4,7 +4,9 @@ class apt {
 	$root = '/etc/apt'
 	$provider = '/usr/bin/apt-get'
 
-  package { "python-software-properties": }
+    package { "python-software-properties":
+        before => [File["sources.list"], File["sources.list.d"]]
+    }
 
 	file { "sources.list":
 		name => "${root}/sources.list",
