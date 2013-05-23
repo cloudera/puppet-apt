@@ -4,6 +4,10 @@ class apt {
 	$root = '/etc/apt'
 	$provider = '/usr/bin/apt-get'
 
+        if ($::lsbdistcodename == "lucid") {
+		package { "python-software-properties": }
+        }
+
 	file { "sources.list":
 		name => "${root}/sources.list",
 		ensure => present,
